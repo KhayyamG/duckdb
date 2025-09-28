@@ -1,0 +1,7 @@
+# Ignore local data files
+__pycache__/
+data/*.parquet
+data/*.csv
+*.parquet
+*.csv
+
