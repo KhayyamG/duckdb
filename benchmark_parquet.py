@@ -18,7 +18,6 @@ if not parquet_path.exists():
 print(f"Using Parquet: {parquet_path}")
 print(f"Top {TOP_N} companies by row count")
 
-# DuckDB aggregation with separate setup/processing timings
 duck_setup_start = time.perf_counter()
 duck_conn = duckdb.connect()
 duck_setup_time = time.perf_counter() - duck_setup_start
@@ -43,7 +42,6 @@ print(f'  setup time: {duck_setup_time:.3f}s')
 print(f'  processing time: {duck_proc_time:.3f}s')
 print(f'  total time: {duck_total_time:.3f}s')
 
-# Spark aggregation with separate setup/processing timings
 setup_start = time.perf_counter()
 spark = SparkSession.builder.master("local[*]").appName("TopCompaniesParquet").getOrCreate()
 spark_setup_time = time.perf_counter() - setup_start

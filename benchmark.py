@@ -20,7 +20,6 @@ if not csv_path.exists():
 print(f"Using CSV: {csv_path}")
 print(f"Top {TOP_N} companies by row count")
 
-# DuckDB aggregation
 start = time.perf_counter()
 duck_rows = duckdb.execute(
     (
@@ -37,7 +36,6 @@ for company, rows in duck_rows:
     print(f"  {company}: {rows}")
 print(f"  processing time: {duck_time:.3f}s")
 
-# Spark aggregation with separate setup/processing timings
 setup_start = time.perf_counter()
 spark = SparkSession.builder.master("local[*]").appName("TopCompanies").getOrCreate()
 spark_setup_time = time.perf_counter() - setup_start
