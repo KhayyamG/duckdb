@@ -4,4 +4,5 @@ data/*.parquet
 data/*.csv
 *.parquet
 *.csv
+benchmark_faster_parquet.py
 
